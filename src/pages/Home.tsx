@@ -1,36 +1,48 @@
-import React from 'react';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+const routeKeys = {
+  FLIGHTS: "/flights",
+
+};
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-lg font-bold text-red-600">Frank Airlines</a>
+          <a href="#" className="text-lg font-bold text-red-600">
+            Frank Airlines
+          </a>
           <ul className="flex space-x-4">
             <li>
-              <a href="#" className="text-gray-700 hover:text-red-600">Home</a>
+              <a href="#" className="text-gray-700 hover:text-red-600">
+                Home
+              </a>
             </li>
             <li>
-              <a href="#" className="text-gray-700 hover:text-red-600">Flights</a>
+              <a
+                onClick={() => navigate(routeKeys.FLIGHTS)}
+                className="text-gray-700 hover:text-red-600"
+              >
+                Flights
+              </a>
             </li>
             <li>
-              <a href="#" className="text-gray-700 hover:text-red-600">Hotel</a>
+              <a href="#" className="text-gray-700 hover:text-red-600">
+                Hotel
+              </a>
             </li>
             <li>
-              <a href="#" className="text-gray-700 hover:text-red-600">Orders</a>
+              <a href="#" className="text-gray-700 hover:text-red-600">
+                Orders
+              </a>
             </li>
           </ul>
         </div>
-        <div className="flex items-center space-x-4">
-          <a href="#" className="text-gray-700 hover:text-red-600">Signin</a>
-          <a
-            href="#"
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-          >
-            Register
-          </a>
-        </div>
+       
       </nav>
 
       {/* Hero Section */}
@@ -43,7 +55,8 @@ const HomePage: React.FC = () => {
               From All Our Destinations
             </h1>
             <p className="text-lg">
-              Book your next adventure with ease and enjoy the best service in the air.
+              Book your next adventure with ease and enjoy the best service in
+              the air.
             </p>
             <button className="px-6 py-3 bg-white text-red-600 font-medium rounded-lg shadow-lg hover:bg-gray-200 transition">
               Explore Now

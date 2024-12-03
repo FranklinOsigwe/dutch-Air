@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import wallpaper from "assets/wallpaper.png";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -204,10 +205,14 @@ const Flights = () => {
   };
 
   return (
-    <div>
+    <div   style={{
+      backgroundImage: `url(${wallpaper})`,
+    }}
+    className="bg-cover bg-center bg-no-repeat min-h-screen">
       <Header />
 
       <div className="max-w-[480px] mx-auto pt-40 pb-20">
+
         <SearchInput
           search={searchQuery as string}
           setSearch={(value) => {
@@ -260,7 +265,7 @@ const Flights = () => {
         />
       </div>
 
-      {/* Modal */}
+   
       <FlightModal
         isEditMode={!!selectedFlightId}
         isPending={isPending || isUpdating}

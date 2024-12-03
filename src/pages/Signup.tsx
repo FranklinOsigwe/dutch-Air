@@ -6,8 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../context/AuthContext";
 import { signUp } from "services";
 import errorManager from "utilities/errors";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { routeKeys } from "router";
+
 
 const loginSchema = z.object({
   name: z.string().min(3, "Name must be atleast 3 characters"),
@@ -117,12 +118,17 @@ const Signup: React.FC = () => {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center flex gap-5 justify-center">
           <p className="text-sm text-gray-500">
             Need help?{" "}
             <a href="#" className="text-red-600 hover:underline">
               Contact Support
             </a>
+          </p>
+          <p className="text-sm text-gray-500">
+            <Link to={routeKeys.LOGIN} className="text-red-600 hover:underline">
+              Login
+            </Link>
           </p>
         </div>
       </div>

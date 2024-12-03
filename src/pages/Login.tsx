@@ -8,6 +8,7 @@ import { login } from "services";
 import errorManager from "utilities/errors";
 import { useNavigate } from "react-router";
 import { routeKeys } from "router";
+import { Link } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -35,7 +36,8 @@ const Login: React.FC = () => {
         response.token
       );
 
-      navigate(routeKeys.FLIGHTS);
+      // navigate(routeKeys.FLIGHTS);
+      navigate(routeKeys.HOME);
     } catch (error) {
       const errorMsg = errorManager.format(error);
       toast.error(errorMsg);
@@ -45,7 +47,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat">
+      
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center text-red-400 mb-6">
           Frank Airlines
@@ -97,12 +100,20 @@ const Login: React.FC = () => {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center flex gap-5 justify-center">
           <p className="text-sm text-gray-500">
             Need help?{" "}
             <a href="#" className="text-red-600 hover:underline">
               Contact Support
             </a>
+          </p>
+          <p className="text-sm text-gray-500">
+            <Link
+              to={routeKeys.SIGN_UP}
+              className="text-red-600 hover:underline"
+            >
+              SignUp
+            </Link>
           </p>
         </div>
       </div>
